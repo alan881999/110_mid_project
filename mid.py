@@ -8,13 +8,23 @@ from decimal import *
 from flask import Markup
 
 app=Flask(__name__)
-##### 選擇功能頁面
+##### 登入頁面 P1
+@app.route('/')
+def index_P1():
+    return render_template('index_P1.html')
+
+##### 選擇功能頁面 P2
 @app.route('/index_P2.html')
 def index_P2():
     return render_template('index_P2.html')
 
-##### 選擇停車場頁面
-@app.route('/')
+##### 顯示當前停車位 P3
+@app.route('/index_P3.html')
+def index_P3():
+    return render_template('index_P3.html')
+
+##### 選擇停車場頁面 P4
+@app.route('/index_P4.html')
 def index():
     now_user_id = "q56101028"
     return render_template('index_P4.html')
@@ -25,14 +35,14 @@ def index_form():
     return render_template('index_form.html')
 
 
-##### 預約停車場頁面
+##### 預約停車場頁面 P5
 @app.route("/index_P5.html", methods=['GET'])
 def index_P5():
     print("go_index_p5")
     return render_template('index_P5.html')
 
-##### 預約完成頁面 / 順便寫檔
-@app.route('/ok.html', methods=['GET'])
+##### 預約完成頁面 / 順便寫檔 P6
+@app.route('/index_P6_ok.html', methods=['GET'])
 def change_json():
     print("change_json")
     car = request.args.get('car')##所填車牌

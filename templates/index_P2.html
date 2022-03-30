@@ -10,14 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static',    filename='css/style_P2.css') }}">
-
-
-
 </head>
 <body>
     <header>
     <form action="">
-       <a href="index_form.html"><img src="/static/picture/man.png" alt="預約記錄" width="100"></a>
+       <a onclick="go_form()"><img src="/static/picture/man.png" alt="預約記錄" width="100"></a>
     </form>
     </header>
 
@@ -28,13 +25,36 @@
         </section>
 
         <section class="reserved">
-            <form action="">
-                <input type="image" src="/static/picture/車位預約.png"alt="圖片" width="200">
+            
+                <input type="image" src="/static/picture/車位預約.png"alt="圖片" width="200" onclick="go_P4()">
                 <img src="/static/picture/line.png" alt="分隔線" width="1.5">
-                <input type="image" src="/static/picture/即時車位查詢.png"alt="圖片" width="215">
-            </form>
+                <input type="image" src="/static/picture/即時車位查詢.png"alt="圖片" width="215" onclick="go_P3()">
+            
         </section>
     </main>
 </body>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //查看所所填入之資料
+        function go_form(){
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            user_id = url.searchParams.get('user_id');
+            window.location.href="index_form.html?user_id=" + user_id
+        }
+        //查看 停車場所剩下之資料
+        function go_P3(){
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            user_id = url.searchParams.get('user_id');
+            window.location.href="index_P3.html?user_id=" + user_id
+        }
+        //預約停車場
+        function go_P4(){
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            user_id = url.searchParams.get('user_id');
+            window.location.href="index_P4.html?user_id=" + user_id
+        }
+    </script>
 </html>
