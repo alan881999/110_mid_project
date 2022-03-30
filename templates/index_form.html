@@ -17,37 +17,22 @@
         <!--NAV-->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
             <div class="container-fluid">
-            <a class="navbar-brand" href="#">Group5 成大預約停車系統</a>
+            <a class="navbar-brand" href="">Group5 成大預約停車系統</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" onclick="go_P2()">主頁</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Map</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <a class="nav-link" onclick="go_P3()">查看所剩車位</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" onclick="go_P4()">預約車位</a>
                 </li>
                 </ul>
-                <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
             </div>
         </nav>
@@ -69,10 +54,34 @@
                 </form>
 
                 <button style="font-size: 15px; background-color: rgb(214, 213, 213);">取消預約</button>
-            
+                
             
             </section>
         </div>
     </main>
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //查看所所填入之資料
+        function go_P2(){
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            user_id = url.searchParams.get('user_id');
+            window.location.href="index_P2.html?user_id=" + user_id
+        }
+        //查看 停車場所剩下之資料
+        function go_P3(){
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            user_id = url.searchParams.get('user_id');
+            window.location.href="index_P3.html?user_id=" + user_id
+        }
+        //預約停車場
+        function go_P4(){
+            var getUrlString = location.href;
+            var url = new URL(getUrlString);
+            user_id = url.searchParams.get('user_id');
+            window.location.href="index_P4.html?user_id=" + user_id
+        }
+    </script>
 </html>
