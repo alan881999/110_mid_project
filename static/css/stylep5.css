@@ -1,0 +1,84 @@
+.form{
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+    /*border:1px solid #000;*/
+    color: white;
+
+    /*網上所調*/
+    /*font-family: Arial;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: bold;
+    color: white;
+    border: 40px solid transparent;
+    border-image: url(/picture/dog_2.jfif);
+    border-image-slice: 200px;
+    border-image-width: 150px ;
+    padding: 15px;*/
+}
+.body{
+    background:url(/static/picture/tree.jpg);
+    background-color: rgba(0, 0, 0, .6);
+    /*設置背景混和模式為相乘模式*/
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center center;
+}
+.submit{
+    margin-left: 20%;
+    width:calc(20%)
+}
+.sel{
+    height: 29px;
+}
+/*以下為表單樣式*/
+/*https://www.wfublog.com/2017/08/complex-form-custom-grid-system.html*/
+.f2{
+    float:left;
+    margin-left:5px;
+    margin-right:5px;
+    width:calc(10% - 10px)
+}
+.f3{
+    float:left;
+    margin-left:5px;
+    margin-right:5px;
+    width:calc(15% - 10px)
+}
+.f4{
+    float:left;
+    margin-left:5px;
+    margin-right:5px;
+    width:calc(20% - 10px)
+}
+.f10{
+    float:left;
+    margin-left:5px;
+    margin-right:5px;
+    width:calc(50% - 10px)
+}
+.f11{
+    float:left;
+    margin-left:5px;
+    margin-right:5px;
+    width:calc(55% - 10px)
+}
+.w4{
+    float:left
+    ;width:20%
+}
+.w6{
+    float:left;
+    width:30%
+}
+.w10{
+    float:left;
+    width:50%
+}
+.w20{
+    width:100%;
+    overflow:auto
+}
+/*以上為表單樣式*/
+

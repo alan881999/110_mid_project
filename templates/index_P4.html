@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成功大學停車場地圖</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/style.css') }}">
+</head>
+<body>
+    <!--NAV-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Group5 成大預約停車系統</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index_P2.html">功能選擇</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <!--內容-->
+    <div class="big_map">
+        <div class="basic">
+            <div class="wrapper">
+                <!--<a href="javascript:void(0)" class="button" onclick="change_map(A)" >A 光復前門地下停車場</a>-->
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "A" onclick="change_page(this)">A 光復前門地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "B" onclick="change_page(this)">B 管院地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "C" onclick="change_page(this)">C 雲平地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "D" onclick="change_page(this)">D 修齊地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "E" onclick="change_page(this)">E 都計地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "F" onclick="change_page(this)">F 成功前門地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "G" onclick="change_page(this)">G 三系館地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "H" onclick="change_page(this)">H 奇美樓地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "I" onclick="change_page(this)">I 生科大樓地下停車場</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "J" onclick="change_page(this)">J 理學大樓地下停車場</div>
+            </div>
+        </div>
+        <div class="ground">
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "1" onclick="change_page(this)">1 管院平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "2" onclick="change_page(this)">2 雲平平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "3" onclick="change_page(this)">3 新園平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "4" onclick="change_page(this)">4 土木及水利平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "5" onclick="change_page(this)">5 自強平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "6" onclick="change_page(this)">6 勝後平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "7" onclick="change_page(this)">7 力行平面</div>
+            </div>
+            <div class="wrapper">
+                <div class="button"  onmouseover  = "change_map(this);" onmouseout = "change_text(this)" map-name = "8" onclick="change_page(this)">8 成杏平面</div>
+            </div>
+        </div>
+        <div class = "map">
+            <img id="map_picture" src="/static/picture/map.jpg" >
+        </div>
+        
+    </div>
+</body>
+<script>
+    /*滑鼠移到按鍵上時 改圖片 加上 預約文字*/
+    function change_map(ele) {
+        console.log("/static/picture/map_" + ele.getAttribute('map-name') + ".jpg");
+        console.log( ele.innerText);
+        document.getElementById("map_picture").src = "/static/picture/map_" + ele.getAttribute('map-name') + ".jpg";
+        ele.innerText = "預約 : " + ele.innerText
+    }
+    /*滑鼠移開 將預約文字去除*/
+    function change_text(ele) {
+        ele.innerText = ele.innerText.replace("預約 : ","")
+    }
+    //跳至填寫預約的畫面
+    function change_page(ele){
+        //取得先前傳入的user_id
+        var getUrlString = location.href;
+        var url = new URL(getUrlString);
+        select_user_id = url.searchParams.get('user_id');
+        //將所選的停車場 及 user_id往下傳
+        window.location.href="index_P5.html?select="+ ele.getAttribute('map-name') + "&user_id=" + select_user_id;
+    }
+</script>
+
+</html>
