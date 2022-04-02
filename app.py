@@ -6,12 +6,43 @@ import pymysql
 import json
 from decimal import *
 from flask import Markup
+from pymysql import NULL
 
 app=Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 ##### 登入頁面 P1
 @app.route('/')
 def index_P1():
+    user_name = request.args.get('user_name')
+    passwd = request.args.get('passwd')
+    
+    build_info={"user_id": user_name, 
+                "user_password": passwd, 
+                "user_car": "", 
+                "user_select_park": "", 
+                "user_park_date": ""}
+    
+    with open("static/information.json","r") as file:
+        check=True
+        datas=json.load(file)
+        print(type(datas))
+        for data in datas:
+            if data["user_id"] == user_name:
+                check=False
+                break
+    datas.append(build_info)
+    print(datas)
+    if check and user_name!=NULL:
+        with open("static/information.json","w") as f:
+           json.dump(datas,f)
+       
     return render_template('index_P1.html')
+
+##### sign up page
+@app.route('/sign_up.html')
+def sign_up():
+    return render_template('sign_up.html')
+
 
 ##### 選擇功能頁面 P2
 @app.route('/index_P2.html')
