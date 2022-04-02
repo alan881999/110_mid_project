@@ -1,3 +1,59 @@
+#G{
+  position:absolute;
+  top: 59.5%;
+  left: 81.5%;
+}
+
+#A{
+  position: absolute;
+  top:68.3%;
+  left:61.2%;
+}
+
+#G_div{
+  position:absolute;
+  top: 59.5%;
+  left: 25%;
+}
+
+#G_number{
+  position: relative;
+  top: -35px;
+}
+
+#tri{
+  position: absolute;
+  top:46%;
+  left:22%;
+  width: 80px;
+  height: 80px;
+}
+
+#word{
+  position: absolute;
+  top:37%;
+  left: 7%;
+  width: 40px;
+  height: 40px;
+  font-size: 50px;
+  writing-mode:vertical-lr;
+}
+
+.circle_size{
+  width: 30px;
+  height: 30px;
+  border: 6px #ff9204 solid;
+  border-radius:100%
+}
+
+.circle_size:hover{
+  width: 30px;
+  height: 30px;
+  border: 6px #ff0804 solid;
+  border-radius:100%
+}
+
+
 .P3_map{
     position: absolute;
     left: 50%;
@@ -54,14 +110,14 @@ h1.ml8 {
     top: 0;
     bottom: 0;
   }
-  
+  /*
   .ml8 .circle-white {
     width: 3em;
     height: 3em;
-    border: 2px dashed white;
+    border: 2px dashed rgb(255, 255, 255,);
     border-radius: 2em;
   }
-  
+  */
   .ml8 .circle-dark {
     width: 2.2em;
     height: 2.2em;
