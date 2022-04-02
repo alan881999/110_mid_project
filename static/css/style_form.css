@@ -1,0 +1,12 @@
+#cancel_buttton{
+    font-size: 15px;
+    background-color: rgb(214, 213, 213);
+    width: 5%;
+    margin-top: 1%;
+    text-align: center;
+    border: 1px solid #000;
+}
+#outside{
+    border: 2px solid #25528f;
+    margin: 5% 5% 5% 5%;
+}

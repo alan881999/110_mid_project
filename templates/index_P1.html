@@ -27,7 +27,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{{ url_for('static',    filename='css/signin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',    filename='css/style_signin.css') }}">
   </head>
   <body class="text-center">
       <main class="form-signin">
@@ -36,11 +36,11 @@
           <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
           <div class="form-floating">
-            <input  class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input  required class="form-control" id="floatingInput" placeholder="name@example.com" >
             <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input required type="password" class="form-control" id="floatingPassword" placeholder="Password" >
             <label for="floatingPassword">Password</label>
           </div>
 
@@ -49,10 +49,10 @@
               <input type="checkbox" value="remember-me"> Remember me
             </label>
           </div>
-          <button class="w-100 btn btn-lg btn-primary"  >Sign in</button>
+          <div class="w-100 btn btn-lg btn-primary" onclick="go_P2()">Sign in</div>
           <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
         </form>
-        <div onclick="go_P2()" style="border: 1px solid #000;">P2</div>
+        <!--<div onclick="go_P2()" style="border: 1px solid #000;">P2</div>-->
     </main>
     
   <!-- JavaScript Bundle with Popper -->
@@ -61,7 +61,42 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <script type="text/javascript" charset="utf-8">
       function go_P2(){
-          window.location.href="index_P2.html?user_id=" + document.getElementById("floatingInput").value
+          //先從 information.json裡免找 是否有使用者
+          var getUrlString = location.href;
+          var url = new URL(getUrlString);
+          select_user_id = document.getElementById("floatingInput").value;
+          select_user_password = document.getElementById("floatingPassword").value;
+          //檢查是否有填寫過停車位
+          //如果沒有 則在mid.py填寫
+          //如果有 則警示 "請先取消停車位"
+          a_basic = $.ajax({
+                  url:"/static/information.json",
+                  type:"GET",
+                  dataType:"json",
+                  async:false,
+              });
+          //取得Json檔
+          //將string轉換成Object
+          result_park=$.parseJSON(a_basic.responseText)
+          console.log(result_park)
+          check_user_exist = 0 //帳號密碼正確
+          //確認帳號密碼是否正確
+          for(i=0;i<result_park.length;i++){
+              if(select_user_id == result_park[i]["user_id"]){
+                if(select_user_password == result_park[i]["user_password"]){
+                  //帳號密碼正確
+                  check_user_exist = 1
+                }
+              }
+          }
+          //若不存在使用者 則警示 重新登入
+          if (check_user_exist == 0){ //使用者不存在
+              alert("帳號密碼不存在或不正確 請重新輸入");
+          }
+          //若存在使用者 則登入
+          else{
+            window.location.href="index_P2.html?user_id=" + document.getElementById("floatingInput").value
+          }
       }
     </script>
 </html>
