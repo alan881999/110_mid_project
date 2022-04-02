@@ -71,7 +71,7 @@ def change_json():
     with open("static/information.json","w") as f:
         json.dump(data_inf, f,ensure_ascii=False)##寫回JSON
     #################
-    return render_template('ok.html')##跳到預約完成
+    return render_template('index_P6_ok.html')##跳到預約完成
     
 if __name__ == '__main__':
 	app.run(host='0.0.0.0',port='5000',debug=True)
