@@ -14,14 +14,14 @@
 <body>
     <header>
     <form action="">
-       <a onclick="go_form()"><img src="/static/picture/man.png" alt="預約記錄" width="100"></a>
+       <a onclick="go_form()"><img src="/static/picture/man.png" alt="預約記錄" id = "record" ></a>
     </form>
     </header>
 
     <main>
         <section class="title">
             <h1 style="color: white;">成大車位,輕鬆預約!</h1>
-            <img src="/static/picture/moto.png" alt="機車" width="250px" height="200px" >
+            <img src="/static/picture/moto.png" alt="機車" width="250" height="200">
         </section>
 
         <section class="reserved">
@@ -33,28 +33,6 @@
         </section>
     </main>
 </body>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        //查看所所填入之資料
-        function go_form(){
-            var getUrlString = location.href;
-            var url = new URL(getUrlString);
-            user_id = url.searchParams.get('user_id');
-            window.location.href="index_form.html?user_id=" + user_id
-        }
-        //查看 停車場所剩下之資料
-        function go_P3(){
-            var getUrlString = location.href;
-            var url = new URL(getUrlString);
-            user_id = url.searchParams.get('user_id');
-            window.location.href="index_P3.html?user_id=" + user_id
-        }
-        //預約停車場
-        function go_P4(){
-            var getUrlString = location.href;
-            var url = new URL(getUrlString);
-            user_id = url.searchParams.get('user_id');
-            window.location.href="index_P4.html?user_id=" + user_id
-        }
-    </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="{{ url_for('static',    filename='JS/JS_P2.js') }}"></script>
 </html>
