@@ -1,3 +1,9 @@
+function go_sign_up(){
+ 
+    window.location.href="sign_up.html"
+}
+
+
 function go_P2(){
     //先從 information.json裡免找 是否有使用者
     var getUrlString = location.href;
