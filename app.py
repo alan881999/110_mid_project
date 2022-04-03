@@ -65,7 +65,36 @@ def index():
 def index_form():
     return render_template('index_form.html')
 
-
+##### 取消目前預約
+@app.route('/index_cancel.html')
+def index_cancel():
+    print("cancel_json")
+    user_id = request.args.get('user_id')##所登入帳號
+    #################更改基本資料
+    with open("static/information.json","r") as load_f:
+        data_inf = json.load(load_f)
+    for i in range(0,len(data_inf)):
+        if data_inf[i]["user_id"] == user_id:
+            data_inf[i]["user_car"] = ""
+            select = data_inf[i]["user_select_park"]
+            data_inf[i]["user_select_park"] = ""
+            data_inf[i]["user_park_date"] = ""
+            break
+    ###寫SJSON檔
+    with open("static/information.json","w") as f:
+        json.dump(data_inf, f,ensure_ascii=False)##寫回JSON
+    #################  
+    #################更改所剩下停車位
+    ###讀JSON檔
+    with open("static/park_information.json","r") as load_f:
+        data = json.load(load_f)
+        now_select = int(data[select])+1##少一個車位
+    ###寫SJSON檔
+    with open("static/park_information.json","w") as f:
+        data[select] = str(now_select)
+        json.dump(data, f,ensure_ascii=False)##寫回JSON
+    
+    return render_template("index_P2.html")
 ##### 預約停車場頁面 P5
 @app.route("/index_P5.html", methods=['GET'])
 def index_P5():
