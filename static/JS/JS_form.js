@@ -58,5 +58,14 @@ window.onload = function(){
 }
 //取消預約停車位
 function cancel_book(){
-    
+    var getUrlString = location.href;
+    var url = new URL(getUrlString);
+    select_user_id = url.searchParams.get('user_id');
+    if(document.getElementById("park_get").innerHTML==""){
+        alert("目前已經沒有預定車位")
+    }
+    else{
+        window.location.href="index_cancel.html?user_id=" + select_user_id
+    }
+    //window.localtion.reload
 }
